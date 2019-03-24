@@ -65,6 +65,22 @@ export class RestProvider {
     return this.getUrlReturn(`${this.apiUrlRegister}?mobile=${mobile}&password=${password}&nickname=${nickname}`);
   }
 
+  /**
+   * 获取用户信息
+   *
+   * @param {string} userid
+   * @returns {Observable <string[]>}
+   * @memberof RestProvider
+   */
+  public getUserInfo(userid: string): Observable<string[]> {
+    return this.getUrlReturn(`${this.apiUrlUserInfo}?userid=${userid}`)
+  }
+
+
+  public updateInfo(userid: string, nickname: string): Observable<string[]> {
+    return this.getUrlReturn(`${this.apiUrlUpdateNickName}?userid=${userid}&nickname=${nickname}`);
+  }
+
 
   /**
    * @private

@@ -23,6 +23,7 @@ import { MorePage } from '../pages/more/more';
 import { NotificationPage } from '../pages/notification/notification';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
+import { UserPage } from '../pages/user/user';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RegisterPage } from '../pages/register/register';
     MorePage,
     LoginPage,
     RegisterPage,
+    UserPage,
     TabsPage
   ],
   imports: [
@@ -54,7 +56,8 @@ import { RegisterPage } from '../pages/register/register';
     MorePage,
     LoginPage,
     TabsPage,
-    RegisterPage
+    RegisterPage,
+    UserPage,
   ],
   providers: [
     StatusBar,

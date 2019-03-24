@@ -23,6 +23,14 @@
   </div>
 
   <div *ngIf="logined">
-    12345
+    <ion-list class="mt-10">
+      <button ion-item (click)="toUserPage()">
+        <ion-avatar item-start>
+          <img [src]="headface" alt="">
+        </ion-avatar>
+        <h2>{{userinfo.UserNickName}}</h2>
+        <p>查看个人主页或编辑简介</p>
+      </button>
+    </ion-list>
   </div>
 </ion-content>
