@@ -14,6 +14,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 // providers constomer
 import { RestProvider } from '../providers/rest/rest';
+import { Transfer, TransferObject } from '@ionic-native/transfer';
+import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
+import { FilePath } from '@ionic-native/file-path';
 // pages
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -24,6 +28,7 @@ import { NotificationPage } from '../pages/notification/notification';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { UserPage } from '../pages/user/user';
+import { HeadfacePage } from '../pages/headface/headface';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,8 @@ import { UserPage } from '../pages/user/user';
     LoginPage,
     RegisterPage,
     UserPage,
-    TabsPage
+    TabsPage,
+    HeadfacePage
   ],
   imports: [
     BrowserModule,
@@ -58,12 +64,17 @@ import { UserPage } from '../pages/user/user';
     TabsPage,
     RegisterPage,
     UserPage,
+    HeadfacePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
-    RestProvider
+    RestProvider,
+    Camera,
+    File,
+    FilePath,
+    Transfer
   ]
 })
 export class AppModule { }
