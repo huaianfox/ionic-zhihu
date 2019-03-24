@@ -8,6 +8,12 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 // Components
 import { MyApp } from './app.component';
 
+
+// providers
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+// providers constomer
+import { RestProvider } from '../providers/rest/rest';
 // pages
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -16,12 +22,7 @@ import { ChatPage } from '../pages/chat/chat';
 import { MorePage } from '../pages/more/more';
 import { NotificationPage } from '../pages/notification/notification';
 import { LoginPage } from '../pages/login/login';
-
-// providers
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-// providers constomer
-import { RestProvider } from '../providers/rest/rest';
+import { RegisterPage } from '../pages/register/register';
 
 @NgModule({
   declarations: [
@@ -32,13 +33,16 @@ import { RestProvider } from '../providers/rest/rest';
     ChatPage,
     MorePage,
     LoginPage,
+    RegisterPage,
     TabsPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicStorageModule.forRoot(),
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp, {
+      backButtonText: '返回'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -49,7 +53,8 @@ import { RestProvider } from '../providers/rest/rest';
     ChatPage,
     MorePage,
     LoginPage,
-    TabsPage
+    TabsPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

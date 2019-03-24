@@ -9,6 +9,7 @@ import {
 import { Storage } from '@ionic/storage';
 import { BaseUI } from '../../common/baseUi';
 import { RestProvider } from '../../providers/rest/rest';
+import { RegisterPage } from '../register/register';
 
 
 @Component({
@@ -61,6 +62,10 @@ export class LoginPage extends BaseUI {
    */
   dismiss() {
     this.viewControler.dismiss();
+  }
+
+  pushRegisterPage() {
+    this.navCtrl.push(RegisterPage);
   }
 
 }

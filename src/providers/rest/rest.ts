@@ -38,7 +38,7 @@ export class RestProvider {
   //notification
   private apiUrlUserNotifications = "https://imoocqa.gugujiankong.com/api/account/usernotifications";
 
-
+  // todo... 实际业务要加密处理
 
   /**
    * 根据用户的手机号码和密码登录
@@ -50,6 +50,19 @@ export class RestProvider {
    */
   public login(mobile: number, password: string): Observable<string[]> {
     return this.getUrlReturn(`${this.apiUrlLogin}?mobile=${mobile}&password=${password}`);
+  }
+
+  /**
+   * 注册请求接口
+   *
+   * @param {number} mobile
+   * @param {string} nickname
+   * @param {string} password
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
+  public register(mobile: string, nickname: string, password: string): Observable<string[]> {
+    return this.getUrlReturn(`${this.apiUrlRegister}?mobile=${mobile}&password=${password}&nickname=${nickname}`);
   }
 
 
