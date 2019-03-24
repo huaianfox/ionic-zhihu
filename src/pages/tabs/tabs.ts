@@ -17,7 +17,5 @@ export class TabsPage {
   tabNotification = NotificationPage;
   tabMore = MorePage;
 
-  constructor() {
-
-  }
+  constructor() { }
 }

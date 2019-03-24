@@ -1,14 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Response } from '@angular/http';
+import { Response, Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
 
-/*
-  Generated class for the RestProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class RestProvider {
 
@@ -17,12 +10,50 @@ export class RestProvider {
    * @param {HttpClient} http
    * @memberof RestProvider
    */
-  constructor(public http: HttpClient) {
+  constructor(public http: Http) {
     // console.log('Hello RestProvider Provider');
   }
+
+  //feed
+  private apiUrlFeeds = 'https://imoocqa.gugujiankong.com/api/feeds/get';
+
+  //account
+  private apiUrlRegister = 'https://imoocqa.gugujiankong.com/api/account/register';
+  private apiUrlLogin = 'https://imoocqa.gugujiankong.com/api/account/login';
+  private apiUrlUserInfo = 'https://imoocqa.gugujiankong.com/api/account/userinfo';
+  private apiUrlUpdateNickName = 'https://imoocqa.gugujiankong.com/api/account/updatenickname';
+
+  private apiGetUserQuestionList = "https://imoocqa.gugujiankong.com/api/account/getuserquestionlist";
+
+  //question
+  private apiUrlQuestionSave = 'https://imoocqa.gugujiankong.com/api/question/save';
+  private apiUrlQuestionList = 'https://imoocqa.gugujiankong.com/api/question/list?index=1&number=10';
+  private apiUrlGetQuestion = "https://imoocqa.gugujiankong.com/api/question/get";
+  private apiUrlGetQuestionWithUser = "https://imoocqa.gugujiankong.com/api/question/getwithuser";
+  private apiUrlAnswer = "https://imoocqa.gugujiankong.com/api/question/answer";
+  private apiUrlSaveFavourite = "https://imoocqa.gugujiankong.com/api/question/savefavourite";
+
+
+
+  //notification
+  private apiUrlUserNotifications = "https://imoocqa.gugujiankong.com/api/account/usernotifications";
+
+
+
   /**
+   * 根据用户的手机号码和密码登录
    *
-   *
+   * @param {number} mobile
+   * @param {any} password
+   * @returns {Observable<string[]>}
+   * @memberof RestProvider
+   */
+  public login(mobile: number, password: string): Observable<string[]> {
+    return this.getUrlReturn(`${this.apiUrlLogin}?mobile=${mobile}&password=${password}`);
+  }
+
+
+  /**
    * @private
    * @param {string} url
    * @returns {Observable<string[]>}
@@ -34,8 +65,7 @@ export class RestProvider {
       .catch(this.handleErroer)
   }
   /**
-   *
-   *
+   * 根据返回的数据处理成JSON
    * @private
    * @param {Response} res
    * @returns
@@ -48,8 +78,8 @@ export class RestProvider {
 
 
   /**
-   *
-   *
+   * 处理请求中的错误
+   * 
    * @private
    * @param {(Response | any)} error
    * @returns

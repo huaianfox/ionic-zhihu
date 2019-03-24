@@ -6,16 +6,29 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title>用户登录</ion-title>
+    <ion-title text-center>用户登录</ion-title>
     <ion-buttons>
-      <button ion-button>
+      <button ion-button (click)="dismiss()">
         <span ion-text color="primary" showWhen="ios">取消</span>
-        <ion-icon color="primary" showWhen="android"></ion-icon>
+        <ion-icon name="md-close" color="primary" showWhen="android"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>手机号码</ion-label>
+      <ion-input type="number" [(ngModel)]="mobile"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>密码</ion-label>
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding text-center>
+    <p><button ion-button color="primary" block (click)="handleLogin()">登 录</button></p>
+    <p><button ion-button color="primary" outline>没有账号？立即注册</button></p>
+  </div>
 </ion-content>
